@@ -8,17 +8,17 @@ The BentoBox is a vault that holds tokens and generates yield from flash loans a
 
 Building on top of Bentobox provides these benefits:
 
-- Extra yield from flash loans
+-   Extra yield from flash loans
 
-- Extra yield from strategies
+-   Extra yield from strategies
 
-- Optimized deposit, withdraw and skim functions that auto convert ETH to WETH
+-   Optimized deposit, withdraw and skim functions that auto convert ETH to WETH
 
-- Low gas (and fixed gas!) transfers of tokens within Bentobox
+-   Low gas (and fixed gas!) transfers of tokens within Bentobox
 
-- Simplified approval of tokens (no need to reapprove for each protocol)
+-   Simplified approval of tokens (no need to reapprove for each protocol)
 
-- Minimal proxy contract factory is built in; no need to roll your own!
+-   Minimal proxy contract factory is built in; no need to roll your own!
 
 ### Single Vault
 
@@ -36,21 +36,21 @@ ERC-3156 wasn't final at release of the BentoBox and the BentoBox is not ERC-315
 
 The BentoBox has a simple strategy system per token. A strategy is a contract that invests a single token for profit and returns the profit in that same token. The safest strategies would be those that:
 
-- Can only ever grow in token amount - principal is always safe
+-   Can only ever grow in token amount - principal is always safe
 
-- Can be deposited and withdrawn at will
+-   Can be deposited and withdrawn at will
 
 Some examples of this would be:
 
-- The SushiBar: $SUSHI can be invested and held as xSUSHI. See **SushiStrategy.sol**
+- The SushiBar: $SUSHI can be invested and held as xSUSHI
 
-- Staking contracts, such as MasterChef and Onsen
+-   Staking contracts, such as MasterChef and Onsen
 
 It will be up to the community and the Sushi team to decide which strategies are safe enough to enable. The BentoBox has a hardcoded 2 week waiting period for enabling or changing strategies.
 
 ### Amounts and Shares
 
-When you deposit token in the BentoBox, you receive a number of shares. This represents your shares of the total token amount in the BentoBox. As the amount of tokens grows due to flash loan fees and profit from strategies, you will get your share of that. Simple depositing tokens into the BentoBox can provide returns.
+When you deposit token in the BentoBox, you receive a number of shares. This represents your shares of the total token amount in the BentoBox. As the amount of tokens grows due to flash loan fees and profit from strategies, you will get your share of that. Simply depositing tokens into the BentoBox can provide returns.
 
 Because of limited precision in the accounting, there will be small rounding differences. For most tokens these will be incredibly small and have no useful value. In the top 100 tokens, currently $XAUT is worth the most for a single accounting unit, at about $0.00185. BentoBox is designed to never round in your favour, because that could be exploited by clever hackers. But because of this, when you deposit 100 tokens and withdraw it straight away, you may only receive for instance 99.9999.
 
